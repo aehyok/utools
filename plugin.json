@@ -1,0 +1,11 @@
+{
+	"main": "index.html",
+	"logo": "logo.png",
+	"features": [
+		{
+		  "code": "35+ Hello World",
+		  "explain": "hello world",
+			"cmds":["35+", "35", "35岁"]
+		}
+	]
+}
