@@ -1,6 +1,74 @@
 <!DOCTYPE html>
 <html>
 <body>
-35+ 大龄程序员的hello world
+  35+ 大龄程序员的hello world
+  <div id="demo" style="display: flex; flex-direction: row;"></div>
 </body>
+<script>
+  console.log(window.utools, "window.utools")
+
+  // 插入数据
+  // for(let i = 0; i < 100; i++) {
+  //   window.utools.db.put({
+  //     _id: `demo${i}`,
+  //     data: `demo${i}`
+  //   })
+  // }
+
+
+    // demo/11
+    // demo/22
+    // test/1x
+    // test/2x
+    const list = window.utools.db.allDocs("demo1");
+
+    console.log(list, "list")
+
+    console.log(window, 'window')
+
+    const cb =(data) => {
+      console.log(data.toString(), "callback0-0-1")
+      console.log(document.getElementById("demo"),"demo")
+      var element = document.createElement("div")
+      element.innerText = data.toString()
+      element.style = "width: 100px; height: 100px; background-color: red; margin: 10px;border: 1px solid green;"
+
+      document.getElementById("demo").append(element)
+    }
+
+    setTimeout(() => {
+      window.services.exec(cb)
+      // console.log(str, "str")
+      // str.then(res => {
+      //   console.log(res, "res")
+      // })
+
+    }, 2000);
+
+
+  // const res = window.utools.db.put({
+  //   _id: "demo",
+  //   data: "demo"
+  // })
+  // console.log(res, "res")
+  // res打印出来的结果 
+  // {id: "demo", ok: true, rev: "1-05c9b92e6f24287dc1f4ec79d9a34fa8"}
+
+  // 修改
+  // window.utools.db.put({
+  //   _id: "demo",
+  //   data: "11",
+  //   _rev: "1-b48e768b09ab7d602b80fc4b56586095"
+  // });
+
+
+  // 获取
+  // 如果已被删除再来获取只会返回一个null
+  // const res = window.utools.db.get("demo");
+  // console.log(res, "res")
+
+  // 移除
+  // const res = window.utools.db.remove("demo");
+  // console.log(res, "res")
+</script>
 </html>
